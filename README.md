@@ -16,10 +16,9 @@ wykonują operacje na bibliotece.
 
 Na początku wszystkie wątki pisarzy i czytelników są w stanie WAITING w kolejce. Następnie czekają na 'permit', aby
 zgodnie z podanymi wyżej zasadami móc wejść do biblioteki, zwalniając miejsce w kolejce. Po wyjściu z biblioteki
-ponownie zostają dodani do kolejki i czekają na 'permit'. Pętla jest nieskończona, aczkolwiek posiada counter, który
-powstrzymuje ją przed wykonaniem się w nieskończoność. Po wykonaniu się counter'a, wątki są zatrzymywane.
+ponownie zostają dodani do kolejki i czekają na 'permit'. Po spełnieniu warunku z counter, wątki są zatrzymywane.
 
-Przy wywołaniu funckji add...() pobierany zostaje permit z semafora queue (zabezpiecza nas to przed zagłodzeniem writera)
+Przy wywołaniu funckji add...() pobierany zostaje permit z semafora queue (zabezpiecza nas to przed zagłodzeniem writera),
 który po wejściu do biblioteki zostaje zwrócony. Pozwala to na wpuszczenie kilku czytelników do biblioteki naraz, ale
-gdy czeka writer to nikt nie może wejść do biblioteki.
+gdy czeka writer, to nikt nie może wejść do biblioteki.
 
